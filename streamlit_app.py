@@ -47,16 +47,14 @@ try:
     if not fruit_choice:
         streamlit.error("Please select a fruit to get information.")
     else:
-        fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + fruit_choice)
-        
-        if fruityvice_response.status_code == 200:
-            fruityvice_normalized = pd.json_normalize(fruityvice_response.json())
-            streamlit.dataframe(fruityvice_normalized)
-        else:
-            streamlit.error(f"Fruit not found: {fruit_choice}")
+      fruityvice_response = requests.get("https://fruityvice.com/api/fruit/"+ fruit_choice)
+      fruityvice_normalized = pandas.json_normalize(fruityvice_response.json())
+       streamlit.dataframe(fruityvice_normalized)
 
 except URLError as e:
-    streamlit.error(f"Error accessing the API: {e}")
+streamlit.error()
+
+
 
 
 
