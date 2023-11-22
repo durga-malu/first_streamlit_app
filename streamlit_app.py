@@ -40,6 +40,7 @@ def get_fruityvice_data(this_fruit_choice):
         return fruityvice_normalized
 
 # Display information about a selected fruit from Fruityvice
+# Display information about a selected fruit from Fruityvice
 streamlit.header("Fruityvice Fruit Advice!")
 
 try:
@@ -50,3 +51,4 @@ try:
     else:
         back_from_function = get_fruityvice_data(fruit_choice)
         streamlit.dataframe(back_from_function)
+
