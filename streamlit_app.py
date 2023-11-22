@@ -76,17 +76,13 @@ if streamlit.button("Get fruit load list"):
 
 # allow user to add fruit
 # allow user to add fruit
+# allow user to add fruit
 def insert_row_snowflake(new_fruit):
     try:
         with my_cnx.cursor() as my_cur:
-            query = "insert into PC_RIVERY_DB.PUBLIC.FRUIT_LOAD_LIST (column_name) values (?)"
+            query = "INSERT INTO PC_RIVERY_DB.PUBLIC.FRUIT_LOAD_LIST VALUES ('from streamlit')"
             my_cur.execute(query, (new_fruit,))
         return f"Thanks for adding {new_fruit}"
     except Exception as e:
         return f"Error adding {new_fruit}: {e}"
 
-
-add_my_fruit = streamlit.text_input('What fruit would you like to add?')
-if streamlit.button('Add a fruit to the list'):
-    back_from_function = insert_row_snowflake(add_my_fruit)
-    streamlit.text(back_from_function)
