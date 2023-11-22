@@ -34,8 +34,6 @@ from urllib.error import URLError
 
 def get_fruityvice_data(this_fruit_choice):
     fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + this_fruit_choice)
-    
-    if fruityvice_response.status_code == 200:
         fruityvice_normalized = pd.json_normalize(fruityvice_response.json())
         return fruityvice_normalized
 
@@ -50,3 +48,5 @@ try:
     else:
         back_from_function = get_fruityvice_data(fruit_choice)
         streamlit.dataframe(back_from_function)
+
+except URLError as e:
