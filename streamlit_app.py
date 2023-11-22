@@ -70,7 +70,5 @@ if streamlit.button("Get fruit load list"):
     fruit_load_list_data = get_fruit_load_list()
     streamlit.dataframe(fruit_load_list_data)
 
-    my_data_rows = get_fruit_load_list()
- streamlit.dataframe(my_data_rows)
 
 
