@@ -86,7 +86,7 @@ my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
 def insert_row_snowflake(new_fruit):
     try:
         with my_cnx.cursor() as my_cur:
-            query = "INSERT INTO PC_RIVERY_DB.PUBLIC.FRUIT_LOAD_LIST (column_name) VALUES (?)"
+            query = "INSERT INTO PC_RIVERY_DB.PUBLIC.FRUIT_LOAD_LIST (fruit_name) VALUES (?)"
             my_cur.execute(query, (new_fruit,))
         return f"Thanks for adding {new_fruit}"
     except Exception as e:
